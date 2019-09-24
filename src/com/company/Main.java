@@ -10,18 +10,22 @@ public class Main {
     public static void main(String[] args) {
 
         int numberOfFolders = 0;
+        String path = null;
+        int counter = 1;
 
         System.out.print("Введите количество папок: ");
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             numberOfFolders = Integer.parseInt(bufferedReader.readLine());
+            System.out.println("Введите путь или нажмите Enter для выбора пути по умолчанию:");
+            
+            path = bufferedReader.readLine().equals("") ? "D:\\IT-academy\\HomeTask3\\Task3_" : bufferedReader.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        int counter = 1;
         while (counter <= numberOfFolders) {
-            String path = "D:\\IT-academy\\HomeTask3\\Task3_" + counter;
-            new File(path).mkdir();
+            String pathFinal = path + counter;
+            new File(pathFinal).mkdir();
             counter++;
         }
     }

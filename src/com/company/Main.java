@@ -11,6 +11,7 @@ public class Main {
 
         int numberOfFolders = 0;
 
+        System.out.print("Введите количество папок: ");
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
             numberOfFolders = Integer.parseInt(bufferedReader.readLine());
         } catch (IOException e) {
@@ -18,7 +19,7 @@ public class Main {
         }
 
         int counter = 1;
-        while (counter < numberOfFolders) {
+        while (counter <= numberOfFolders) {
             String path = "D:\\IT-academy\\HomeTask3\\Task3_" + counter;
             new File(path).mkdir();
             counter++;
